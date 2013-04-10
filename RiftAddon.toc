@@ -1,0 +1,34 @@
+Identifier = "Gadgets_aUIFrames"
+
+Name = "aUI Frames"
+Description = "Minimalist Unit Frames"
+Website = "..."
+Email = "Arsonal@greybriar"
+
+Version = "Beta 0.1"
+
+Environment = "2.2"
+
+RunOnStartup = 
+{
+  "templates/aPlayerFrame.lua",
+  "templates/aTargetFrame.lua",
+  "templates/aTTargetFrame.lua",
+  "MediaInit.lua",
+  "Bindings.lua",
+}
+
+SavedVariables = 
+{
+
+}
+
+Embed = 
+{
+
+}
+
+Dependencies = 
+{
+	Gadgets = {"required", "before"},
+}

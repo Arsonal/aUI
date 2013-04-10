@@ -1,0 +1,41 @@
+Gadgets\wtLibUnitFrame\elements\wtBuffPanel.lua
+
+Comments:
+Gives timer setting both font and background options
+Gives stack setting font option
+Allows timer to display hours when buff is longer 60 minutes
+
+
+
+Line 62: Add
+self.config.timerBackgroundColor = config.timerBackgroundColor or nil 
+self.config.timerFont = config.timerFont or nil
+
+Line 158: Add
+local bgColor = self.config.timerBackgroundColor
+if bgColor then			
+	icon.txtTimer:SetBackgroundColor(bgColor.r, bgColor.g, bgColor.b, bgColor.a or 1.0)
+end
+if config.font then
+	local fontEntry = Library.Media.GetFont(config.font)
+	if fontEntry then
+		icon.txtTimer:SetFont(fontEntry.addonId, fontEntry.filename)
+	end
+end
+
+Line 175: Add
+if config.font then
+	local fontEntry = Library.Media.GetFont(config.font)
+	if fontEntry then
+	icon.txtStack:SetFont(fontEntry.addonId, fontEntry.filename)
+	end
+end
+
+Line 422: Add
+elseif remaining > 3600  then
+	txt = math.floor((remaining / 60) / 60) .. "h"
+
+
+
+
+
