@@ -14,6 +14,7 @@ RunOnStartup =
   "templates/aPlayerFrame.lua",
   "templates/aTargetFrame.lua",
   "templates/aTTargetFrame.lua",
+  "templates/aPetFrame.lua",
   "MediaInit.lua",
   "Bindings.lua",
 }
