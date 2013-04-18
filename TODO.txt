@@ -1,0 +1,8 @@
+Player Frame 
+	Intergrate charge bar into frame
+	
+Target Frame (Complete)
+	Add raid marks -- Maybe
+	
+Raid Frame (Idea's :\)
+	Work of template
