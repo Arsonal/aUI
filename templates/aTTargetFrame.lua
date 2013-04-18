@@ -2,7 +2,7 @@ local toc, data = ...
 local AddonId = toc.identifier
 
 -- Local config options ---------------------------------------------------------
-local aTTargetFrameWidth = 250
+local aTTargetFrameWidth = 175
 local aTTargetFrameHeight = 40
 --------------------------------------------------------------------------------
 local aGadgets = {}
