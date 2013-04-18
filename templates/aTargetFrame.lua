@@ -133,17 +133,17 @@ function aTargetFrame:Construct(options)
 				color={r=1,g=0,b=0,a=1}
 			},
 			{
-				id="labelLeveL", type="Label", parent="barHealth", layer=30,
+				id="labelLeveL", type="Label", parent=" ", layer=30,
 				attach = {{ point="TOPRIGHT", element="frameBackdrop", targetPoint="TOPRIGHT", offsetX=5, offsetY=-5 }},
 				visibilityBinding="level",
 				text="{levelS}", font="Pixel", fontSize=18, outline = true
 			},
 			{
-				id="imgRare", type="Image", parent="frameBackdrop", layer=35,
-				attach = {{ point="CENTER", element="frameBackdrop", targetPoint="CENTER" }},
-				texAddon="Rift", texFile="ControlPoint_Diamond_Grey.png.dds",
-				visibilityBinding="guaranteedLoot",
-				width=32, height=32,
+				id="npc", type="Label", parent=" ", layer=35,
+				attach = {{ point="TOPLEFT", element="frameBackdrop", targetPoint="TOPLEFT", offsetX=0, offsetY=-5 }},
+				visibilityBinding="id",
+				text="{npcT}", font="Pixel", fontSize=18, outline=true
+				
 			},			
 			{
 				id="buffPanelBuffs", type="BuffPanel", parent="HorizontalBar", layer=30,
