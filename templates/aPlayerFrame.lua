@@ -127,19 +127,19 @@ function aPlayerFrame:Construct(options)
 				id="combat", type="Frame", parent="frame", layer=1, 
 				attach = 
 				{ 
-					{ point="TOPLEFT", element="frame", targetPoint="TOPLEFT", offsetX=0, offsetY=0 },
-					{ point="BOTTOMRIGHT", element="frame", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=-55 } 
+					{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=0, offsetY=0 },
+					{ point="BOTTOMRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=-55 } 
 				}, 				
 				visibilityBinding="combat", 
 				color={r=1,g=0,b=0,a=1}
 			},
 			{
-				id="planar", type="Label", parent="health", layer=30,
+				id="planar", type="Label", parent=" ", layer=40,
 				attach = {{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=0, offsetY=-5 }},
 				text="{planar}", font="Pixel", fontSize=20, outline = true
 			},
 			{
-				id="soul", type="Label", parent="health", layer=30,
+				id="soul", type="Label", parent=" ", layer=30,
 				attach = {{ point="TOPRIGHT", element="fBackdrop", targetPoint="TOPRIGHT", offsetX=0, offsetY=-5 }},
 				text="{vitalSoul}", font="Pixel", fontSize=20, outline = true
 			},			
@@ -171,55 +171,13 @@ function aPlayerFrame:Construct(options)
 				id="combo", type="ImageSet", parent="frame", layer=10, alpha=1,
 				attach = 
 				{
-					{ point="CENTER", element="fBackdrop", targetPoint="CENTER", offsetX=287.5, offsetY=-39 },
+					{ point="BOTTOMLEFT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=0 },
 				},
 				indexBinding="comboIndex", rows=5, cols=1,
 				visibilityBinding="comboIndex",
+				height = 15,
 				texAddon=AddonId, texFile="media/img/scp1.png", alpha=1,
 			},
-			--[[
-			--------------------------------------------------------------------------------------------------
-			{
-				id="imgPVP", type="MediaSet", parent="frame", layer=100, width=16, height=16,
-				attach = {{ point="CENTERLEFT", element="imgRole", targetPoint="CENTERRIGHT", offsetX=0, offsetY=0 }}, 
-				nameBinding="pvpAlliance",
-				names = 
-				{
-					["defiant"] = "FactionDefiant",
-					["guardian"] = "FactionGuardian",
-					["nightfall"] = "FactionNightfall",
-					["oathsworn"] = "FactionOathsworn",
-					["dominion"] = "FactionDominion",
-				},
-			},
-			{
-				id="imgMark", type="MediaSet", parent="frameBackdrop", layer=30,
-				attach = {{ point="CENTER", element="frameBackdrop", targetPoint="CENTER", offsetX=20, offsetY=0 }},
-				width = 32, height = 32,
-				nameBinding="mark",
-				names = 
-				{
-					["1"] = "riftMark01",
-					["2"] = "riftMark02",
-					["3"] = "riftMark03",
-					["4"] = "riftMark04",
-					["5"] = "riftMark05",
-			        ["6"] = "riftMark06",
-			        ["7"] = "riftMark07",
-			        ["8"] = "riftMark08",
-			        ["9"] = "riftMark09",
-			        ["10"] = "riftMark10",
-			        ["11"] = "riftMark11",
-			        ["12"] = "riftMark12",
-			        ["13"] = "riftMark13",
-			        ["14"] = "riftMark14",
-			        ["15"] = "riftMark15",
-			        ["16"] = "riftMark16",
-			        ["17"] = "riftMark17",
-				},
-				visibilityBinding="mark",alpha=1.0,
-			},
-			]]
 		},
 	}
 	
