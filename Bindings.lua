@@ -48,27 +48,25 @@ WT.Unit.CreateVirtualProperty("healthT", { "health", "healthMax" },
     end)
 
 ------------Name Changers------------
-WT.Unit.CreateVirtualProperty("nameStatusT", { "name", "afk", "health", "offline" },
+WT.Unit.CreateVirtualProperty("nameStatusT", { "name", "afk", "offline", "health", "offline" },
 	function(unit)
-		if unit.afk then
+		if unit.offline then
+			return "D/C"
+		elseif unit.afk then
 			return "AFK"
 		elseif unit.dead then
 			return "Dead"
-		elseif unit.offline then
-			return "D/C"
 		else
 			return unit.name
 		end
 	end)
 	
-WT.Unit.CreateVirtualProperty("nameStatusP", { "afk", "health", "offline", "vitality", "vitalityMax" },
+WT.Unit.CreateVirtualProperty("nameStatusP", { "afk", "health",  "vitality", "vitalityMax" },
 	function(unit)
 		if unit.afk then
 			return "AFK"
 		elseif unit.dead then
 			return "Dead"
-		elseif unit.offline then
-			return "D/C"
 		else 
 			return nil
 		end
@@ -92,6 +90,8 @@ WT.Unit.CreateVirtualProperty("levelS", { "level" },
 		if unit.level == "??" then
 			return "??"	
 		elseif unit.level < 60 then
+			return unit.level
+		elseif unit.level >60 then
 			return unit.level
 		else
 			return nil
@@ -129,4 +129,24 @@ WT.Unit.CreateVirtualProperty("vitalSoul", { "vitality", "vitalityMax" },
 			return "HEAL"
 		end
 	end)
+	
+	
+------------Mob teir identifier----------------
+
+WT.Unit.CreateVirtualProperty("npcT", { "level", "tier", "guaranteedLoot" },
+	function(unit)
+		if unit.tier  == "raid" then
+			return "++"
+		elseif unit.tier == "group" then
+			return "+"
+		elseif unit.guaranteedLoot and unit.tier then
+			return "R+"
+		elseif unit.guaranteedLoot then
+			return "R"
+		else
+			return nil
+		end
+	end)
+
+	
 	
