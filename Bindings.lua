@@ -147,14 +147,3 @@ WT.Unit.CreateVirtualProperty("npcT", { "level", "tier", "guaranteedLoot" },
 			return nil
 		end
 	end)
-
----------MOAR COLORING STUFF----------WTS COLORING BOOK!
-WT.Unit.CreateVirtualProperty("rangeColor", { "range" },
-	function(unit)
-		if unit.range > 35 then
-			return { r=0.8, g=0, b=0, a=1.0 }
-		else 
-			return { r=0.9, g=0.9, b=0.9, a=1.0 }
-		end
-	end)
-	
