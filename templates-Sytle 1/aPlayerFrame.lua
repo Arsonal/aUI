@@ -44,43 +44,33 @@ function aPlayerFrame:Construct(options)
 		elements = 
 		{
 			{
-				id="cBackdrop", type="Frame", parent="frame", layer=0, 
+				id="fBackdrop", type="Frame", parent="frame", layer=0, 
 				attach = 
 				{ 
 					{ point="TOPLEFT", element="frame", targetPoint="TOPLEFT" },
 					{ point="BOTTOMRIGHT", element="frame", targetPoint="BOTTOMRIGHT" } 
 				}, 				
 				visibilityBinding="id", 
-				colorBinding="combatN",
-			},
-			{
-				-- Generic Element Configuration
-				id="fBackdrop", type="Frame", parent="frame", layer=1,
-				attach = 
-				{ 
-					{ point="TOPLEFT", element="cBackdrop", targetPoint="TOPLEFT", offsetX=1, offsetY=1 },
-					{ point="BOTTOMRIGHT", element="cBackdrop", targetPoint="BOTTOMRIGHT", offsetX=-1, offsetY=-1 } 
-				},
+				--texAddon = AddonId, texFile = "img/wtMiniFrame_bg.png", 
 				color={r=0,g=0,b=0,a=1}
 			},
 			{
 				id="health", type="Bar", parent="fBackdrop", layer=5,
 				attach = 
 				{
-					{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=1, offsetY=1 },
-					{ point="BOTTOMRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=-1, offsetY=-10 },
+					{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=3, offsetY=3 },
+					{ point="RIGHT", element="fBackdrop", targetPoint="RIGHT", offsetX=-3 },
 				},
-				growthDirection = "right",  --height=47, color={r=0.2, g=0.2, b=0.2, a=.7}, 
-				binding="healthPercent", color={r=.2,g=.2,b=.2,a=.7}, 
-				texAddon=AddonId, texFile="media/textures/Glaze2.png", alpha = .6, 
-				--backgroundColor={r=0, g=0, b=0, a=0}
+				binding="healthPercent", height=41, color={r=0.2, g=0.2, b=0.2, a=.7}, 
+				--texAddon=AddonId, texFile="media/textures/Normtex.tga", Alpha = 0,
+				backgroundColor={r=0.0, g=0.0, b=0.0, a=0}
 			},				
 			{
 				id="resource", type="Bar", parent="fBackdrop", layer=10,
 				attach = 
 				{
-					{ point="BOTTOMLEFT", element="fBackdrop", targetPoint="BOTTOMLEFT", offsetX=1, offsetY=-1 },
-					{ point="RIGHT", element="fBackdrop", targetPoint="RIGHT", offsetX=-1 },
+					{ point="BOTTOMLEFT", element="fBackdrop", targetPoint="BOTTOMLEFT", offsetX=3, offsetY=-3 },
+					{ point="RIGHT", element="fBackdrop", targetPoint="RIGHT", offsetX=-3 },
 				},
 				binding="resourcePercent", height=8, colorBinding="rColor",
 				--texAddon=AddonId, texFile="media/textures/Normtex.tga", Alpha = .8,
@@ -99,22 +89,22 @@ function aPlayerFrame:Construct(options)
 				--backgroundColor={r=0, g=0, b=0, a=0},
 			},
 			{
-				id="Resource", type="Label", parent="frame", layer=20,
+				id="Resource", type="Label", parent="health", layer=20,
 				attach = {{ point="CENTERLEFT", element="health", targetPoint="CENTERLEFT", offsetX=0, offsetY=0 }},
 				visibilityBinding="resource", colorBinding="rColor",
 				text="{resource}",font="Pixel", fontSize=24, outline=true
 			},
 			{
-				id="Health", type="Label", parent="frame", layer=20,
-				attach = {{ point="CENTERRIGHT", element="health", targetPoint="CENTERRIGHT", offsetX=0, offsetY=0 }},
+				id="Health", type="Label", parent="health", layer=20,
+				attach = {{ point="CENTERRIGHT", element="health", targetPoint="CENTERRIGHT", offsetX=-5, offsetY=0 }},
 				visibilityBinding="health",  colorBinding="healthT",
-				text="{health}",font="Pixel", fontSize=24, outline=true, 
+				text="{health}",font="Pixel", outline=true, fontSize=24
 			},		
 			{
-				id="Name", type="Label", parent="frame", layer=30,
+				id="Name", type="Label", parent="health", layer=30,
 				attach = {{ point="CENTER", element="fBackdrop", targetPoint="CENTER", offsetX=0, offsetY=0 }},
 				visibilityBinding="name", colorBinding="cColor",
-				text="{nameStatusP}", font="UnitframeF", fontSize=26, outline=true,
+				text="{nameStatusP}", font="UnitframeF", fontSize=18, outline=true,
 			},
 			{
 				id="cast", type="Bar", parent="fBackdrop", layer=25,
@@ -134,13 +124,23 @@ function aPlayerFrame:Construct(options)
 				text="{castName}", font="UnitframeF", fontSize=16, outline = true
 			},
 			{
-				id="planar", type="Label", parent="frame", layer=40,
-				attach = {{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=0, offsetY=-3 }},
+				id="combat", type="Frame", parent="frame", layer=1, 
+				attach = 
+				{ 
+					{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=0, offsetY=0 },
+					{ point="BOTTOMRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=-55 } 
+				}, 				
+				visibilityBinding="combat", 
+				color={r=1,g=0,b=0,a=1}
+			},
+			{
+				id="planar", type="Label", parent=" ", layer=40,
+				attach = {{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=0, offsetY=-5 }},
 				text="{planar}", font="Pixel", fontSize=20, outline = true
 			},
 			{
-				id="soul", type="Label", parent="frame", layer=30,
-				attach = {{ point="TOPRIGHT", element="fBackdrop", targetPoint="TOPRIGHT", offsetX=0, offsetY=-3 }},
+				id="soul", type="Label", parent=" ", layer=30,
+				attach = {{ point="TOPRIGHT", element="fBackdrop", targetPoint="TOPRIGHT", offsetX=0, offsetY=-5 }},
 				text="{vitalSoul}", font="Pixel", fontSize=20, outline = true
 			},			
 			{
@@ -171,24 +171,12 @@ function aPlayerFrame:Construct(options)
 				id="combo", type="ImageSet", parent="frame", layer=10, alpha=1,
 				attach = 
 				{
-					{ point="BOTTOMLEFT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=1, offsetY=1 },
+					{ point="BOTTOMLEFT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=0 },
 				},
 				indexBinding="comboIndex", rows=5, cols=1,
 				visibilityBinding="comboIndex",
 				height = 15,
 				texAddon=AddonId, texFile="media/img/scp1.png", alpha=1,
-			},
-			{
-				id="charge", type="Bar", parent="frame", layer=10,
-				attach = 
-				{
-					{ point="TOPLEFT", element="health", targetPoint="BOTTOMLEFT", offsetX=0, offsetY=-8 },
-					{ point="BOTTOMRIGHT", element="health", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=0 },
-				},
-				growthdirection = "right",
-				binding="chargePercent", color={r=0,g=0.8,b=0.8,a=0.8},
-				--texAddon="wtLibUnitFrame", texFile="img/Glaze2.png",
-				--backgroundColor={r=0, g=0, b=0, a=0.4}
 			},
 		},
 	}
@@ -226,8 +214,7 @@ function aPlayerFrame:Construct(options)
 				end 
 			end 
 	end
-	
-		
+			
 	self.ConfigurationDialog = configDialog
 end
 
