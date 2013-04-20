@@ -90,12 +90,11 @@ function aPlayerFrame:Construct(options)
 				id="absorb", type="Bar", parent="health", layer=12,
 				attach = 
 				{
-					{ point="BOTTOMLEFT", element="health", targetPoint="BOTTOMLEFT", offsetX=0, offsetY=-37 },
-					{ point="TOPRIGHT", element="health", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=-41 },
+					{ point="TOPLEFT", element="health", targetPoint="TOPLEFT", offsetX=0, offsetY=0 },
+					{ point="BOTTOMRIGHT", element="health", targetPoint="TOPRIGHT", offsetX=0, offsetY=4 },
 				},
 				growthDirection="right",
 				binding="absorbPercent", color={r=0,g=1,b=1,a=1},
-				media="wtBantoBar", 
 				--backgroundColor={r=0, g=0, b=0, a=0},
 			},
 			{
