@@ -45,7 +45,7 @@ function aTTargetFrame:Construct(options)
 				attach = 
 				{
 					{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=1, offsetY=1 },
-					{ point="BOTTOMRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=-1, offsetY=-8 },
+					{ point="BOTTOMRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=-2, offsetY=-8 },
 				},
 				growthDirection="right", --height=25,
 				binding="healthPercent",  color={r=0.2, g=0.2, b=0.2, a=.7}, 
@@ -57,7 +57,7 @@ function aTTargetFrame:Construct(options)
 				attach = 
 				{
 					{ point="BOTTOMLEFT", element="fBackdrop", targetPoint="BOTTOMLEFT", offsetX=1, offsetY=-1 },
-					{ point="RIGHT", element="fBackdrop", targetPoint="RIGHT", offsetX=-1 },
+					{ point="RIGHT", element="fBackdrop", targetPoint="RIGHT", offsetX=-2 },
 				},
 				binding="resourcePercent", height=6, colorBinding="rColor",
 				--texAddon=AddonId, texFile="media/textures/Normtex.tga", Alpha = .8,

@@ -1,8 +1,30 @@
 Player Frame 
-	Intergrate charge bar into frame
+	Done?
+	PvP indicator?
 	
-Target Frame (Complete)
-	Add raid marks -- Maybe
+Target Frame
+	Done?
+	Raid marks?
+	PvP indicator
+	
+ToT Frame
+	Done for now
+	
+Pet Frame
+	Done for now
+	
+Focus Frame
+	Copy ToT frame design
+	Add HP/resource numbers?
 	
 Raid Frame (Idea's :\)
-	Work of template
+	Dps/Tank verison 
+		Use ToT Frame
+		Add  Aggro indicator
+		
+	Healer verison
+		Use ToT Frame
+		Add Health % or number
+		Create new binding for dBackdrop to show Curse(purple?), Diesease(brown?), Pioson(green), Magic?(blue), Debuffs(IFDK)
+		**** healer stuff.....
+		

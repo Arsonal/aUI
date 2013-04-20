@@ -73,7 +73,7 @@ function aPlayerFrame:Construct(options)
 				growthDirection = "right",  --height=47, 
 				binding="healthPercent", color={r=.2,g=.2,b=.2,a=.7}, 
 				texAddon=AddonId, texFile="media/textures/Glaze2.png", alpha = .6, 
-				--backgroundColor={r=0, g=0, b=0, a=0}
+				backgroundColor={r=0, g=0, b=0, a=0}
 			},				
 			{
 				id="resource", type="Bar", parent="fBackdrop", layer=10,

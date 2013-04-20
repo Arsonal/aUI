@@ -32,7 +32,45 @@ WT.Unit.CreateVirtualProperty("cColor", { "calling" },
 		end
 	end)
 
-----------Gradiant Heallth-------------	
+WT.Unit.CreateVirtualProperty("ccColor", { "calling" },
+	function(unit)
+		if unit.calling == "cleric" then
+			return { r = 171/255, g = 225/255, b = 116/255, a= .6 }
+		elseif unit.calling == "mage" then 
+			return { r = 148/255, g = 130/255, b = 201/255, a=.6 }
+		elseif unit.calling == "rogue" then
+			return { r = 255/255, g = 243/255, b = 82/255 , a=.6 }
+		elseif unit.calling == "warrior" then
+			return { r = 196/255, g = 30/255, b = 60/255, a=.6 }
+		else
+			return { r = 0, g = 0, b = 0, a=.6 }
+		end
+	end)
+
+-------------Raid name coloring---------------------
+WT.Unit.CreateVirtualProperty("bColor", { "blocked", "aggro", "range" },
+	function(unit)
+		if unit.aggro and unit.outOfRange then
+			return { r=.6, g=.2, b=.2, a=.7 }
+		elseif unit.blocked or unit.outOfRange then
+			return { r=.2, g=.2, b=.2, a=.7 }
+		elseif unit.aggro then
+			return { r=1, g=0, b=0, a=.8 }
+		else
+			return { r=1, g=1, b=1, a=1 }
+		end
+	end)
+	
+WT.Unit.CreateVirtualProperty("rsColor", { "afk", "offline", "health" },
+	function(unit)
+		if unit.dead or unit.offline then
+			return { r=1, g=0, b=0, a=.8 }
+		else
+			return { r=1, g=1, b=1, a=1 }
+		end
+	end)
+	
+----------Gradiant Heallth-------------
 WT.Unit.CreateVirtualProperty("healthT", { "health", "healthMax" },
 	function(unit)
 		if unit.health and unit.healthMax and unit.healthMax > 0 then
@@ -48,7 +86,7 @@ WT.Unit.CreateVirtualProperty("healthT", { "health", "healthMax" },
     end)
 
 ------------Name Changers------------
-WT.Unit.CreateVirtualProperty("nameStatusT", { "name", "afk", "offline", "health", "offline" },
+WT.Unit.CreateVirtualProperty("nameStatusT", { "name", "afk", "offline", "health"  },
 	function(unit)
 		if unit.offline then
 			return "D/C"
@@ -61,9 +99,11 @@ WT.Unit.CreateVirtualProperty("nameStatusT", { "name", "afk", "offline", "health
 		end
 	end)
 	
-WT.Unit.CreateVirtualProperty("nameStatusP", { "afk", "health",  "vitality", "vitalityMax" },
+WT.Unit.CreateVirtualProperty("nameStatusP", { "afk", "health","offline" },
 	function(unit)
-		if unit.afk then
+		if unit.offline then
+			return "D/C"
+		elseif unit.afk then
 			return "AFK"
 		elseif unit.dead then
 			return "Dead"
@@ -71,7 +111,7 @@ WT.Unit.CreateVirtualProperty("nameStatusP", { "afk", "health",  "vitality", "vi
 			return nil
 		end
 	end)
-	
+
 
 ----Combat Coloring------------------
 WT.Unit.CreateVirtualProperty("combatN", { "combat" },
@@ -147,3 +187,4 @@ WT.Unit.CreateVirtualProperty("npcT", { "level", "tier", "guaranteedLoot" },
 			return nil
 		end
 	end)
+

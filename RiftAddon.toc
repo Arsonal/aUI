@@ -5,7 +5,7 @@ Description = "Minimalist Unit Frames"
 Website = "..."
 Email = "Arsonal@greybriar"
 
-Version = "Beta 2"
+Version = "Beta 2.1"
 
 Environment = "2.2"
 
@@ -15,6 +15,7 @@ RunOnStartup =
   "templates/aTargetFrame.lua",
   "templates/aTTargetFrame.lua",
   "templates/aPetFrame.lua",
+  "templates/aRaidFrame.lua",
   "MediaInit.lua",
   "Bindings.lua",
 }
