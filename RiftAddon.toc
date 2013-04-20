@@ -5,7 +5,7 @@ Description = "Minimalist Unit Frames"
 Website = "..."
 Email = "Arsonal@greybriar"
 
-Version = "Beta 0.1"
+Version = "Beta 2"
 
 Environment = "2.2"
 
