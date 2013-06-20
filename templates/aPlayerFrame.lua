@@ -44,7 +44,6 @@ function aPlayerFrame:Construct(options)
 				}, 				
 				visibilityBinding="id", 
 				colorBinding="combatN"
-				--color={r=1,g=0,b=0,a=1}
 			},
 			{
 				-- Border Frame
@@ -66,8 +65,6 @@ function aPlayerFrame:Construct(options)
 				},
 				growthDirection = "right",  --height=47, 
 				binding="healthPercent", colorBinding="cColor", 		
-				--texAddon=AddonId, texFile="media/textures/Kait.tga", alpha = .5, 
-				--backgroundColor={r=0, g=0, b=0, a=0}
 			},
 			{
 				-- Resource bar background
@@ -88,8 +85,6 @@ function aPlayerFrame:Construct(options)
 					{ point="BOTTOMRIGHT", element="rBackdrop", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=-1 },
 				},
 				binding="resourcePercent", colorBinding="rColor",
-				--texAddon=AddonId, texFile="media/textures/Normtex.tga", Alpha = .8,
-				--backgroundColor={r=1, g=0, b=0, a=.5}
 			},			
 			{
 				--	Absorb bar
@@ -101,7 +96,6 @@ function aPlayerFrame:Construct(options)
 				},
 				growthDirection="right",
 				binding="absorbPercent", color={r=0,g=1,b=1,a=1},
-				--backgroundColor={r=0, g=0, b=0, a=0},
 			},
 			{
 				-- Health Text
@@ -122,7 +116,7 @@ function aPlayerFrame:Construct(options)
 				id="Status", type="Label", parent="frame", layer=30,
 				attach = {{ point="BOTTOMCENTER", element="fBackdrop", targetPoint="BOTTOMCENTER", offsetX=0, offsetY=0 }},
 				visibilityBinding="name", colorBinding="rsColor",
-				text="{nameStatus}", font="HM", fontSize=26, outline=true,
+				text="{nStatus}", font="HM", fontSize=26, outline=true,
 			},
 			{
 				-- Cast bar
@@ -155,74 +149,17 @@ function aPlayerFrame:Construct(options)
 				attach = {{ point="CENTERLEFT", element="planar", targetPoint="CENTERRIGHT", offsetX=0, offsetY=0}},
 				text="{vitalSoul}", font="HM", fontSize=20, outline = true, 
 			},	
---[[			{
-				-- Old buff bar (WIP)
-				id="buffs", type="BuffPanel", parent="HorizontalBar", layer=30,
-				attach = {{ point="TOPLEFT", element="fBackdrop", targetPoint="BOTTOMLEFT", offsetX=0, offsetY=3 }},
-				rows=3, cols=5, iconSize=36, iconSpacingHorizontal=1, iconSpacingVertical=13, borderThickness=1.5, 
-				acceptLowPriorityBuffs=true, acceptMediumPriorityBuffs=true, acceptHighPriorityBuffs=true, acceptCriticalPriorityBuffs=true,
-				acceptLowPriorityDebuffs=false, acceptMediumPriorityDebuffs=false, acceptHighPriorityDebuffs=false, acceptCriticalPriorityDebuffs=false,
-				growthDirection = "right_down", selfCast=false,
-				timerSize=16, timerOffsetX=0, timerOffsetY=12, font="HM", timerBackgroundColor={r=0,g=0,b=0,a=0},
-				stackSize=18, stackOffsetX=-8, stackOffsetY=-8, font="HM", stackBackgroundColor={r=0,g=0,b=0,a=0.7},
-				borderColor={r=0,g=0,b=0,a=1}, 
-				sweepOverlay=false,
-			},
-			{
-				-- Old debuff bar (WIP)
-				id="debuffs", type="BuffPanel", parent="HorizontalBar", layer=30,
-				attach = {{ point="TOPRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=3 }},
-				rows=3, cols=3, iconSize=36, iconSpacingHorizontal=1, iconSpacingVertical=13, borderThickness=1.5, 
-				acceptLowPriorityBuffs=false, acceptMediumPriorityBuffs=false, acceptHighPriorityBuffs=false, acceptCriticalPriorityBuffs=false,
-				acceptLowPriorityDebuffs=true, acceptMediumPriorityDebuffs=true, acceptHighPriorityDebuffs=true, acceptCriticalPriorityDebuffs=true,
-				growthDirection = "left_down",
-				timerSize=20, timerOffsetX=0, timerOffsetY=22, font="Pixel", timerBackgroundColor={r=0,g=0,b=0,a=1},
-				stackSize=16, stackOffsetX=-8, stackOffsetY=-8, font ="Pixel", stackBackgroundColor={r=0,g=0,b=0,a=0.7},
-				borderColor={r=1,g=0,b=0,a=1},
-				sweepOverlay=false,
-			},]]
 			{
 				-- Combo/Charge bar (Works with all classes) Need to modify to at splits
-				id="combo", type="Bar", parent="frame", layer=10, --alpha=1,
+				id="combo", type="Bar", parent="frame", layer=10, 
 				attach = 
 				{
 					{ point="BOTTOMLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=0, offsetY=-2 },
 					{ point="BOTTOMRIGHT", element="fBackdrop", targetPoint="TOPRIGHT", offsetX=0, offsetY=-2},
 				},
-				growthdirection = "right", height =8, colorBinding="healthT",
+				growthdirection = "right", height =8, colorBinding="nrColor",
 				binding="testCombo", color={r=0,g=0,b=0,a=1},
 			},
-			----------------Testing Remove before release------------------------
---[[			{
-				id="charge", type="Bar", parent="frame", layer=10,
-				attach = 
-				{
-					{ point="TOPLEFT", element="health", targetPoint="BOTTOMLEFT", offsetX=0, offsetY=-9 },
-					{ point="BOTTOMRIGHT", element="health", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=-1 },
-				},
-				growthdirection = "right",
-				binding="testCombo", color={r=0,g=0.8,b=0.8,a=0.8},
-			},		
-			{
-				id="fcharge", type="Frame", parent="frame", layer=9,
-				attach = 
-				{
-					{ point="TOPLEFT", element="health", targetPoint="BOTTOMLEFT", offsetX=0, offsetY=-10 },
-					{ point="BOTTOMRIGHT", element="health", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=0 },
-				},
-				growthdirection = "right",
-				visibilityBinding="testCombo", color={r=0,g=0,b=0,a=1},
-			},
-			{
-				id="imgTest", type="Image", parent="frame", layer=100, 
-				attach = 
-				{
-					{ point="CENTER", element="health", targetPoint="CENTER"},
-				},
-				visibilityBinding="combat",
-			--	height = 15, width=15,
-				texAddon=AddonId, texFile="media/img/combat.png", alpha=1,
-			},]]
 		},
 	}
 	

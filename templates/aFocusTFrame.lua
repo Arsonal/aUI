@@ -15,9 +15,6 @@ aFocusTFrame.Configuration.FrameType = "Frame"
 aFocusTFrame.Configuration.Width = aFocusTFrameWidth
 aFocusTFrame.Configuration.Height = aFocusTFrameHeight
 
-
-
-
 ---------------------------------------------------------------------------------
 function aFocusTFrame:Construct(options)
 	
@@ -28,6 +25,7 @@ function aFocusTFrame:Construct(options)
 		elements = 
 		{
 			{
+				-- Border bar
 				id="fBackdrop", type="Frame", parent="frame", layer=0, 
 				attach = 
 				{ 
@@ -38,6 +36,7 @@ function aFocusTFrame:Construct(options)
 				color={r=0,g=0,b=0,a=1}
 			},
 			{
+				-- Health bar
 				id="health", type="Bar", parent="fBackdrop", layer=5,
 				attach = 
 				{
@@ -46,10 +45,9 @@ function aFocusTFrame:Construct(options)
 				},
 				growthDirection="right", --height=25,
 				binding="healthPercent",  colorBinding="cColor", 
-				--texAddon=AddonId, texFile="media/textures/Glaze2.png", alpha = .6,
-				--backgroundColor={r=0.0, g=0.0, b=0.0, a=0}
 			},							
 			{
+				-- Name text
 				id="Name", type="Label", parent="frame", layer=30,
 				attach = {{ point="CENTER", element="fBackdrop", targetPoint="CENTER", offsetX=0, offsetY=0 }},
 				visibilityBinding="name", --colorBinding="cColor",

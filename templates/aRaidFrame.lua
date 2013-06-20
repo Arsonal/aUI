@@ -27,6 +27,7 @@ function aRaidFrame:Construct(options)
 		elements = 
 		{
 			{
+				-- Border frame
 				id="fBackdrop", type="Frame", parent="frame", layer=1,
 				attach = 
 				{ 
@@ -37,6 +38,7 @@ function aRaidFrame:Construct(options)
 				color={r=0,g=0,b=0,a=.7},
 			},
 			{ 
+				-- Health bar background
 				id="hBackdrop", type="Frame", parent="fBackdrop", layer=1, alpha=.5,
 				attach=
 				{
@@ -46,6 +48,7 @@ function aRaidFrame:Construct(options)
 				colorBinding="ccColor",
 			},
 			{
+				-- Health bar
 				id="health", type="Bar", parent="fBackdrop", layer=2, alpha=.5,
 				attach = 
 				{
@@ -54,10 +57,9 @@ function aRaidFrame:Construct(options)
 				},
 				growthDirection = "right",  
 				binding="healthPercent", colorBinding="cColor", 
-				--texAddon=AddonId, texFile="media/textures/Glaze2.png", alpha = .7, 
-				--backgroundColor={r=0, g=0, b=0, a=0}
 			},
 			{
+				-- Absorb bar
 				id="absorb", type="Bar", parent="health", layer=12,
 				attach = 
 				{
@@ -66,22 +68,23 @@ function aRaidFrame:Construct(options)
 				},
 				growthDirection="right",
 				binding="absorbPercent", color={r=0,g=1,b=1,a=1},
-				--backgroundColor={r=0, g=0, b=0, a=0},
 			},
 			{
+				-- Name text
 				id="Name", type="Label", parent="frame", layer=30,
 				attach = {{ point="CENTERLEFT", element="fBackdrop", targetPoint="CENTERRIGHT", offsetX=5, offsetY=0 }},
 				visibilityBinding="name", colorBinding="bColor",
 				text="{nName}", font="HM", fontSize=16, outline=true,
 			},		
 			{
+				-- Status text
 				id="Status", type="Label", parent="frame", layer=30,
 				attach = {{ point="CENTERLEFT", element="Name", targetPoint="CENTERRIGHT", offsetX=0, offsetY=0 }},
 				visibilityBinding="name", colorBinding="rsColor",
-				text="{nameStatus}", font="HM", fontSize=16, outline=true,
+				text="{nStatus}", font="HM", fontSize=16, outline=true,
 			},
 			{
-				-- Generic Element Configuration
+				-- Blocked/Out of Range cover frame
 				id="frameBlocked", type="Frame", parent="frame", layer=110, 
 				attach = 
 				{ 
@@ -92,6 +95,7 @@ function aRaidFrame:Construct(options)
 				color={r=0,g=0,b=0,a=0.7},
 			}, 
 			{
+				-- Raid marks
 				id="imgMark", type="MediaSet", parent="fBackdrop", layer=30,
 				attach = {{ point="CENTER", element="fBackdrop", targetPoint="TOPCENTER", offsetX=0, offsetY=0 }},
 				width = 20, height = 15,
@@ -119,10 +123,9 @@ function aRaidFrame:Construct(options)
 				visibilityBinding="mark",alpha=1.0,
 			},
 			{
-				-- Generic Element Configuration
+				-- Ready check (WIP)
 				id="imgReady", type="ImageSet", parent="fBackdrop", layer=30,
-				attach = {{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT" }}, -- visibilityBinding="id",
-				-- Type Specific Element Configuration
+				attach = {{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT" }},				
 				texAddon=AddonId, texFile="media/img/wtReady.png", nameBinding="readyStatus", cols=1, rows=2, 
 				names = { ["ready"] = 0, ["notready"] = 1 }, defaultIndex = "hide"
 			},

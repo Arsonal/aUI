@@ -16,6 +16,8 @@ RunOnStartup =
   "templates/aTTargetFrame.lua",
   "templates/aPetFrame.lua",
   "templates/aRaidFrame.lua",
+  "templates/aFocusFrame.lua",
+  "templates/aFocusTFrame.lua",
   "MediaInit.lua",
   "Bindings.lua",
 }

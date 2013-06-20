@@ -15,11 +15,6 @@ aPetFrame.Configuration.FrameType = "Frame"
 aPetFrame.Configuration.Width = aPetFrameWidth
 aPetFrame.Configuration.Height = aPetFrameHeight
 
-if WT.UnitFrame.EnableResizableTemplate then
-      aPetFrame.Configuration.Resizable = { aPetFrameWidth * 1, aPetFrameHeight * 1, aPetFrameWidth * 1, aPetFrameHeight * 1 }
-end
-
-
 ---------------------------------------------------------------------------------
 function aPetFrame:Construct(options)
 	
@@ -30,6 +25,7 @@ function aPetFrame:Construct(options)
 		elements = 
 		{
 			{
+				-- Border frame
 				id="fBackdrop", type="Frame", parent="frame", layer=0, 
 				attach = 
 				{ 
@@ -40,31 +36,28 @@ function aPetFrame:Construct(options)
 				color={r=0,g=0,b=0,a=1}
 			},
 			{
+				-- Health bar
 				id="health", type="Bar", parent="fBackdrop", layer=5,
 				attach = 
 				{
 					{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=1, offsetY=1 },
 					{ point="BOTTOMRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=-1, offsetY=-1 },
 				},
-				growthDirection="right", --height=25,
+				growthDirection="right", 
 				binding="healthPercent",  colorBinding="cColor", 
-				--texAddon=AddonId, texFile="media/textures/Glaze2.png", alpha = .6,
-				--backgroundColor={r=0.0, g=0.0, b=0.0, a=0}
 			},							
 			{
+				-- Name text
 				id="Name", type="Label", parent="frame", layer=30,
 				attach = {{ point="CENTER", element="fBackdrop", targetPoint="CENTER", offsetX=0, offsetY=0 }},
-				visibilityBinding="name", --colorBinding="cColor",
+				visibilityBinding="name", 
 				text="{nName}", font="HM", fontSize=18, outline=true,
 			},
 		},
 	}
 	
 	
-	if WT.UnitFrame.EnableResizableTemplate then
-            WT.UnitFrame.EnableResizableTemplate(self, aPetFrameWidth, aPetFrameHeight, template.elements)
-    end
-	
+
 	for idx,element in ipairs(template.elements) do
 		local showElement = true
 		if options.excludeBuffs and element.type=="BuffPanel" then showElement = false end

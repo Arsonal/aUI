@@ -15,9 +15,6 @@ aTTargetFrame.Configuration.FrameType = "Frame"
 aTTargetFrame.Configuration.Width = aTTargetFrameWidth
 aTTargetFrame.Configuration.Height = aTTargetFrameHeight
 
-
-
-
 ---------------------------------------------------------------------------------
 function aTTargetFrame:Construct(options)
 	
@@ -28,6 +25,7 @@ function aTTargetFrame:Construct(options)
 		elements = 
 		{
 			{
+				-- Border frame
 				id="fBackdrop", type="Frame", parent="frame", layer=0, 
 				attach = 
 				{ 
@@ -38,18 +36,18 @@ function aTTargetFrame:Construct(options)
 				color={r=0,g=0,b=0,a=1}
 			},
 			{
+				-- Health bar
 				id="health", type="Bar", parent="fBackdrop", layer=5,
 				attach = 
 				{
 					{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT", offsetX=1, offsetY=1 },
 					{ point="BOTTOMRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=-1, offsetY=-1 },
 				},
-				growthDirection="right", --height=25,
+				growthDirection="right", 
 				binding="healthPercent",  colorBinding="cColor", 
-				--texAddon=AddonId, texFile="media/textures/Glaze2.png", alpha = .6,
-				--backgroundColor={r=0.0, g=0.0, b=0.0, a=0}
 			},							
 			{
+				-- Name text
 				id="Name", type="Label", parent="frame", layer=30,
 				attach = {{ point="CENTER", element="fBackdrop", targetPoint="CENTER", offsetX=0, offsetY=0 }},
 				visibilityBinding="name", --colorBinding="cColor",

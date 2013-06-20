@@ -1,0 +1,19 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="11">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="266" startPos="369" endPos="369" selMode="0" lang="Normal Text" encoding="-1" filename="E:\Users\Documents\RIFT\Interface\AddOns\gadgets_aUI\RiftAddon.toc" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="875" startPos="136" endPos="136" selMode="0" lang="Normal Text" encoding="-1" filename="E:\Users\Documents\RIFT\Interface\AddOns\gadgets_aUI\TODO.txt" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="590" startPos="518" endPos="518" selMode="0" lang="Lua" encoding="-1" filename="E:\Users\Documents\GitHub\aUI\MediaInit.lua" />
+            <File firstVisibleLine="52" xOffset="0" scrollWidth="721" startPos="2835" endPos="2835" selMode="0" lang="Lua" encoding="-1" filename="E:\Users\Documents\RIFT\Interface\AddOns\gadgets_aUI\Bindings.lua" />
+            <File firstVisibleLine="12" xOffset="0" scrollWidth="1064" startPos="1822" endPos="1822" selMode="0" lang="Lua" encoding="-1" filename="E:\Users\Documents\RIFT\Interface\AddOns\gadgets_aUI\templates\aPlayerFrame.lua" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1043" startPos="4193" endPos="4193" selMode="0" lang="Lua" encoding="-1" filename="E:\Users\Documents\RIFT\Interface\AddOns\gadgets_aUI\templates\aRaidFrame.lua" />
+            <File firstVisibleLine="38" xOffset="0" scrollWidth="1064" startPos="2698" endPos="2632" selMode="0" lang="Lua" encoding="-1" filename="E:\Users\Documents\RIFT\Interface\AddOns\gadgets_aUI\templates\aTargetFrame.lua" />
+            <File firstVisibleLine="9" xOffset="0" scrollWidth="1022" startPos="1412" endPos="1412" selMode="0" lang="Lua" encoding="-1" filename="E:\Users\Documents\RIFT\Interface\AddOns\gadgets_aUI\templates\aTTargetFrame.lua" />
+            <File firstVisibleLine="9" xOffset="0" scrollWidth="882" startPos="1837" endPos="1771" selMode="0" lang="Lua" encoding="-1" filename="E:\Users\Documents\RIFT\Interface\AddOns\gadgets_aUI\templates\aPetFrame.lua" />
+            <File firstVisibleLine="3604" xOffset="0" scrollWidth="7217" startPos="183206" endPos="183206" selMode="0" lang="Normal Text" encoding="-1" filename="E:\Downloads\rift_live_server_detail_documentation.txt" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1043" startPos="12796" endPos="12796" selMode="0" lang="Lua" encoding="-1" filename="E:\Users\Documents\RIFT\Interface\AddOns\gadgets_rgframes\Templates\rgRaidFrames.lua" />
+            <File firstVisibleLine="147" xOffset="0" scrollWidth="1036" startPos="6510" endPos="6510" selMode="0" lang="Lua" encoding="-1" filename="E:\Users\Documents\RIFT\Interface\AddOns\Gadgets\wtLibUnitFrame\templates\RaidFrame.lua" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>

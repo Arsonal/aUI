@@ -1,30 +1,26 @@
-Player Frame 
-	Done?
-	PvP indicator?
+Player Frame
+	Combo/Charge bar redesign	
 	
 Target Frame
-	Done?
-	Raid marks?
-	PvP indicator
+	Finished
 	
 ToT Frame
-	Done for now
+	Name length under 20 characters?
 	
 Pet Frame
-	Done for now
+	Name length under 20 characters?
 	
 Focus Frame
-	Copy ToT frame design
-	Add HP/resource numbers?
+	Finished
 	
-Raid Frame (Idea's :\)
+Raid Frame 
 	Dps/Tank verison 
-		Use ToT Frame
-		Add  Aggro indicator
-		
-	Healer verison
-		Use ToT Frame
+		Ready check
+				
+	Healer verison(WIP)
+		Using Grid as base for ideas
+			
 		Add Health % or number
 		Create new binding for dBackdrop to show Curse(purple?), Diesease(brown?), Pioson(green), Magic?(blue), Debuffs(IFDK)
-		**** healer stuff.....
+		
 		

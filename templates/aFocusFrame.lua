@@ -42,6 +42,7 @@ function aFocusFrame:Construct(options)
 		elements = 
 		{
 			{
+				-- Aggro Frame
 				id="cBackdrop", type="Frame", parent="frame", layer=0, 
 				attach = 
 				{ 
@@ -50,10 +51,9 @@ function aFocusFrame:Construct(options)
 				}, 				
 				visibilityBinding="id", 
 				colorBinding="combatN",
-				--color={r=0,g=1,b=0,a=1}
 			},
 			{
-				-- Generic Element Configuration
+				-- Border Frame
 				id="fBackdrop", type="Frame", parent="frame", layer=1,
 				attach = 
 				{ 
@@ -62,9 +62,9 @@ function aFocusFrame:Construct(options)
 				},
 				visibilityBinding="id",
 				color={r=0,g=0,b=0,a=1}
-				
 			},
-			{
+			{	
+				-- Resource bar background
 				id="rBackdrop", type="Frame", parent="fBackdrop", layer=2,
 				attach = 
 				{
@@ -74,6 +74,7 @@ function aFocusFrame:Construct(options)
 				height=5, colorBinding="ccColor",
 			},
 			{
+				-- Resource bar
 				id="resource", type="Bar", parent="fBackdrop", layer=10,
 				attach = 
 				{
@@ -81,22 +82,20 @@ function aFocusFrame:Construct(options)
 					{ point="BOTTOMRIGHT", element="rBackdrop", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=0 },
 				},
 				binding="resourcePercent", height=5, colorBinding="rColor",
-				--texAddon=AddonId, texFile="media/textures/Normtex.tga", Alpha = .8,
-				--backgroundColor={r=1, g=0, b=0, a=.5}
 			},
 			{
+				-- Health bar
 				id="health", type="Bar", parent="fBackdrop", layer=5,
 				attach = 
 				{
 					{ point="TOPLEFT", element="resource", targetPoint="BOTTOMLEFT", offsetX=0, offsetY=1 },
 					{ point="BOTTOMRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=-0, offsetY=0 },
 				},
-				growthdirection="right", --height=41
-				binding="healthPercent", colorBinding="cColor", 
-				--texAddon=AddonId, texFile="media/textures/Slash2.png", alpha = 1,
-				--bagroundColor={r=0, g=0, b=0, a=0}
+				growthdirection="right",
+				binding="healthPercent", colorBinding="cColor",
 			},			
 			{
+				-- Absorb bar
 				id="absorb", type="Bar", parent="health", layer=12,
 				attach = 
 				{
@@ -105,33 +104,37 @@ function aFocusFrame:Construct(options)
 				},
 				growthDirection="right",
 				binding="absorbPercent", color={r=0,g=1,b=1,a=1},
-				--backgroundColor={r=0, g=0, b=0, a=0},
 			},
 			{
+				-- Health text
 				id="Health", type="Label", parent="frame", layer=20,
 				attach = {{ point="TOPLEFT", element="health", targetPoint="BOTTOMLEFT", offsetX=0, offsetY=2.5 }},
 				visibilityBinding="health",  color={r=1,g=1,b=1,a=1},
 				text="{health}",font="HM", fontSize=22, outline=true,
 			},
 			{
+				-- Resource text
 				id="Resource", type="Label", parent="frame", layer=20,
 				attach = {{ point="CENTERLEFT", element="Health", targetPoint="CENTERRIGHT", offsetX=10, offsetY=0 }},
 				visibilityBinding="resource", colorBinding="rColor",
 				text="{resource}",font="HM", fontSize=22, outline=true
 			},	
 			{
+				-- Status text
 				id="Status", type="Label", parent="frame", layer=30,
 				attach = {{ point="BOTTOMCENTER", element="fBackdrop", targetPoint="BOTTOMCENTER", offsetX=0, offsetY=0 }},
 				visibilityBinding="name", colorBinding="rsColor",
-				text="{nameStatus}", font="HM", fontSize=26, outline=true,
+				text="{nStatus}", font="HM", fontSize=26, outline=true,
 			},			
-			{
+			{	
+				-- Name text
 				id="Name", type="Label", parent="frame", layer=30,
 				attach = {{ point="TOPRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=2.5 }},
-				visibilityBinding="name", --colorBinding="cColor",
+				visibilityBinding="name", 
 				text="{nName}", font="HM", fontSize=20, outline=true,
 			},
 			{
+				-- Cast bar
 				id="cast", type="Bar", parent="fBackdrop", layer=25,
 				attach = 
 				{
@@ -144,37 +147,14 @@ function aFocusFrame:Construct(options)
 				backgroundColor={r=0, g=0, b=0, a=0.7}
 			},
 			{
+				-- Cast name
 				id="Cast", type="Label", parent="cast", layer=30,
 				attach = {{ point="BOTTOMLEFT", element="fBackdrop", targetPoint="BOTTOMLEFT", offsetX=3, offsetY=-2 }},
 				visibilityBinding="castName",
 				text="{castName}", font="UnitframeF", fontSize=16, outline = true
 			},
-			
---[[			{
-				id="buffs", type="BuffPanel", parent="HorizontalBar", layer=30,
-				attach = {{ point="TOPRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=3 }},
-				rows=3, cols=3, iconSize=34, iconSpacingHorizontal=2, iconSpacingVertical=13, borderThickness=1.5, 
-				acceptLowPriorityBuffs=true, acceptMediumPriorityBuffs=true, acceptHighPriorityBuffs=true, acceptCriticalPriorityBuffs=true,
-				acceptLowPriorityDebuffs=false, acceptMediumPriorityDebuffs=false, acceptHighPriorityDebuffs=false, acceptCriticalPriorityDebuffs=false,
-				growthDirection = "left_down", selfCast=false,
-				timerSize=20, timerOffsetX=0, timerOffsetY=22, font="Pixel", timerBackgroundColor={r=0,g=0,b=0,a=1},
-				stackSize=18, stackOffsetX=-8, stackOffsetY=-8, font="Pixel", stackBackgroundColor={r=0,g=0,b=0,a=0.7},
-				borderColor={r=0,g=0,b=0,a=1}, 
-				sweepOverlay=true,
-			},
 			{
-				id="debuffs", type="BuffPanel", parent="HorizontalBar", layer=30,
-				attach = {{ point="TOPLEFT", element="fBackdrop", targetPoint="BOTTOMLEFT", offsetX=0, offsetY=23 }},
-				rows=3, cols=5, iconSize=34, iconSpacingHorizontal=2, iconSpacingVertical=13, borderThickness=1.5,
-				acceptLowPriorityBuffs=false, acceptMediumPriorityBuffs=false, acceptHighPriorityBuffs=false, acceptCriticalPriorityBuffs=false,
-				acceptLowPriorityDebuffs=true, acceptMediumPriorityDebuffs=true, acceptHighPriorityDebuffs=true, acceptCriticalPriorityDebuffs=true,
-				growthDirection = "right_down",
-				timerSize=20, timerOffsetX=0, timerOffsetY=22, font="Pixel", timerBackgroundColor={r=0,g=0,b=0,a=1},
-				stackSize=16, stackOffsetX=-8, stackOffsetY=-8, font ="Pixel", stackBackgroundColor={r=0,g=0,b=0,a=0.7},
-				borderColor={r=1,g=0,b=0,a=1},
-				sweepOverlay=true,
-			},]]
-			{
+				-- Raid marks
 				id="imgMark", type="MediaSet", parent="fBackdrop", layer=30,
 				attach = {{ point="CENTER", element="fBackdrop", targetPoint="TOPCENTER", offsetX=0, offsetY=0 }},
 				width = 20, height = 20,
