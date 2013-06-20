@@ -1,8 +1,8 @@
 local toc, data = ...
 local AddonId = toc.identifier
 -- Local config options ---------------------------------------------------------
-local aRaidFrameWidth = 160
-local aRaidFrameHeight = 24
+local aRaidFrameWidth = 150
+local aRaidFrameHeight = 25
 
 ---------------------------------------------------------------------------------
 
@@ -16,7 +16,7 @@ aRaidFrame.Configuration.Height = aRaidFrameHeight
 
 -- Only enable resizing if the installed version of Gadgets can handle it:
 if WT.UnitFrame.EnableResizableTemplate then
-      aRaidFrame.Configuration.Resizable = { aRaidFrameWidth * 1, aRaidFrameHeight * 1, aRaidFrameWidth * 2, aRaidFrameHeight * 2 }
+      aRaidFrame.Configuration.Resizable = { aRaidFrameWidth * 1, aRaidFrameHeight * 1, aRaidFrameWidth * 1, aRaidFrameHeight * 1 }
 end
 ---------------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ function aRaidFrame:Construct(options)
 				},
 				growthDirection = "right",  
 				binding="healthPercent", colorBinding="cColor", 
-				--texAddon=AddonId, texFile="media/textures/Glaze2.png", alpha = .7, 
+				texAddon=AddonId, texFile="media/textures/Glaze2.png", alpha = .7, 
 				--backgroundColor={r=0, g=0, b=0, a=0}
 			},
 			{
@@ -70,15 +70,15 @@ function aRaidFrame:Construct(options)
 			},
 			{
 				id="Name", type="Label", parent="frame", layer=30,
-				attach = {{ point="CENTERLEFT", element="fBackdrop", targetPoint="CENTERRIGHT", offsetX=5, offsetY=0 }},
+				attach = {{ point="CENTERLEFT", element="fBackdrop", targetPoint="CENTERRIGHT", offsetX=0, offsetY=0 }},
 				visibilityBinding="name", colorBinding="bColor",
-				text="{nName}", font="HM", fontSize=16, outline=true,
+				text="{name}", font="UnitframeF", fontSize=16, outline=true,
 			},		
 			{
 				id="Status", type="Label", parent="frame", layer=30,
 				attach = {{ point="CENTERLEFT", element="Name", targetPoint="CENTERRIGHT", offsetX=0, offsetY=0 }},
 				visibilityBinding="name", colorBinding="rsColor",
-				text="{nameStatus}", font="HM", fontSize=16, outline=true,
+				text="{nameStatusP}", font="UnitframeF", fontSize=16, outline=true,
 			},
 			{
 				-- Generic Element Configuration
@@ -89,43 +89,8 @@ function aRaidFrame:Construct(options)
 					{ point="BOTTOMRIGHT", element="frame", targetPoint="BOTTOMRIGHT", offsetX=-1, offsetY=-1, }
 				},
 				visibilityBinding="blockedOrOutOfRange",
-				color={r=0,g=0,b=0,a=0.7},
-			}, 
-			{
-				id="imgMark", type="MediaSet", parent="fBackdrop", layer=30,
-				attach = {{ point="CENTER", element="fBackdrop", targetPoint="TOPCENTER", offsetX=0, offsetY=0 }},
-				width = 20, height = 15,
-				nameBinding="mark",
-				names = 
-				{
-						["1"] = "riftMark01",
-						["2"] = "riftMark02",
-						["3"] = "riftMark03",
-						["4"] = "riftMark04",
-						["5"] = "riftMark05",
-						["6"] = "riftMark06",
-						["7"] = "riftMark07",
-						["8"] = "riftMark08",
-						["9"] = "riftMark09",
-						["10"] = "riftMark10",
-						["11"] = "riftMark11",
-						["12"] = "riftMark12",
-						["13"] = "riftMark13",
-						["14"] = "riftMark14",
-						["15"] = "riftMark15",
-						["16"] = "riftMark16",
-						["17"] = "riftMark17",
-				},
-				visibilityBinding="mark",alpha=1.0,
-			},
-			{
-				-- Generic Element Configuration
-				id="imgReady", type="ImageSet", parent="fBackdrop", layer=30,
-				attach = {{ point="TOPLEFT", element="fBackdrop", targetPoint="TOPLEFT" }}, -- visibilityBinding="id",
-				-- Type Specific Element Configuration
-				texAddon=AddonId, texFile="media/img/wtReady.png", nameBinding="readyStatus", cols=1, rows=2, 
-				names = { ["ready"] = 0, ["notready"] = 1 }, defaultIndex = "hide"
-			},
+				color={r=0,g=0,b=0,a=0.6},
+			}, 			
 		}
 	}
 	

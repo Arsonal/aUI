@@ -2,18 +2,18 @@ local toc, data = ...
 local AddonId = toc.identifier
 
 -- Local config options ---------------------------------------------------------
-local aTargetFrameWidth = 336
-local aTargetFrameHeight = 30
+local aFocusFrameWidth = 336
+local aFocusFrameHeight = 30
 --------------------------------------------------------------------------------
 local aGadgets = {}
 
 -- Frame Configuration Options --------------------------------------------------
-local aTargetFrame = WT.UnitFrame:Template("aTarget")
-aTargetFrame.Configuration.Name = "aUI Target Frame"
-aTargetFrame.Configuration.Raidsuitable = false
-aTargetFrame.Configuration.FrameType = "Frame"
-aTargetFrame.Configuration.Width = aTargetFrameWidth
-aTargetFrame.Configuration.Height = aTargetFrameHeight
+local aFocusFrame = WT.UnitFrame:Template("aFocus")
+aFocusFrame.Configuration.Name = "aUI Focus Frame"
+aFocusFrame.Configuration.Raidsuitable = false
+aFocusFrame.Configuration.FrameType = "Frame"
+aFocusFrame.Configuration.Width = aFocusFrameWidth
+aFocusFrame.Configuration.Height = aFocusFrameHeight
 
 
 
@@ -28,12 +28,12 @@ local buffPriorities =
 	["Looking for Group Cooldown"] = 0,
 	["Crucia's Touch"] = 0,
 }
-function aTargetFrame:GetBuffPriority(buff)
+function aFocusFrame:GetBuffPriority(buff)
 	if not buff then return 2 end 
 	return buffPriorities[buff.name] or 2
 end
 ---------------------------------------------------------------------------------
-function aTargetFrame:Construct(options)
+function aFocusFrame:Construct(options)
 	
 	table.insert(aGadgets, self)
 
@@ -149,20 +149,7 @@ function aTargetFrame:Construct(options)
 				visibilityBinding="castName",
 				text="{castName}", font="UnitframeF", fontSize=16, outline = true
 			},
-
-			{
-				id="NpcS", type="Label", parent="frame ", layer=40,
-				attach = {{ point="TOPRIGHT", element="fBackdrop", targetPoint="TOPRIGHT", offsetX=0, offsetY=-3 }},
-				visibilityBinding="id",
-				text="{npcT}", font="Pixel", fontSize=20, outline=true
-				
-			},
-			{
-				id="Level", type="Label", parent="frame	", layer=40,
-				attach = {{ point="CENTERRIGHT", element="NpcS", targetPoint="CENTERLEFT", offsetX=0, offsetY=0 }},
-				visibilityBinding="id",
-				text="{levelS}", font="Pixel", fontSize=20, outline = true
-			},			
+			
 --[[			{
 				id="buffs", type="BuffPanel", parent="HorizontalBar", layer=30,
 				attach = {{ point="TOPRIGHT", element="fBackdrop", targetPoint="BOTTOMRIGHT", offsetX=0, offsetY=3 }},

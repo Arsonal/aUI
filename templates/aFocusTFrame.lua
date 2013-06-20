@@ -2,24 +2,24 @@ local toc, data = ...
 local AddonId = toc.identifier
 
 -- Local config options ---------------------------------------------------------
-local aTTargetFrameWidth = 160
-local aTTargetFrameHeight = 24
+local aFocusTFrameWidth = 160
+local aFocusTFrameHeight = 24
 --------------------------------------------------------------------------------
 local aGadgets = {}
 
 -- Frame Configuration Options --------------------------------------------------
-local aTTargetFrame = WT.UnitFrame:Template("aTTarget")
-aTTargetFrame.Configuration.Name = "aUI Target of Target Frame"
-aTTargetFrame.Configuration.Raidsuitable = false
-aTTargetFrame.Configuration.FrameType = "Frame"
-aTTargetFrame.Configuration.Width = aTTargetFrameWidth
-aTTargetFrame.Configuration.Height = aTTargetFrameHeight
+local aFocusTFrame = WT.UnitFrame:Template("aFocusT")
+aFocusTFrame.Configuration.Name = "aUI Focus Target Frame"
+aFocusTFrame.Configuration.Raidsuitable = false
+aFocusTFrame.Configuration.FrameType = "Frame"
+aFocusTFrame.Configuration.Width = aFocusTFrameWidth
+aFocusTFrame.Configuration.Height = aFocusTFrameHeight
 
 
 
 
 ---------------------------------------------------------------------------------
-function aTTargetFrame:Construct(options)
+function aFocusTFrame:Construct(options)
 	
 	table.insert(aGadgets, self)
 
