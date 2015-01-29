@@ -35,24 +35,25 @@ Line 422: Add
 elseif remaining > 3600  then
 	txt = math.floor((remaining / 60) / 60) .. "h"
 	
+	
+	
 Gadgets\wtFPSGadget.lua
 
 Comments:
-Changed Font
-Removed Background
+Change Font
 Change layout
 
-
-Line 32: Add
+Line 38: Change
+fpsHeading:SetText("FPS")
+fpsHeading:SetFontSize(16)
 fpsHeading:SetFont(AddonId, "img/PixelRu.ttf")
 
-Line 36: Add
+Line 51: Add
 fpsFrame:SetFont(AddonId, "img/PixelRu.ttf")
 
-Line 39:Change
+Line 55:Change
 fpsFrame:SetPoint("TOPLEFT", wrapper, "TOPLEFT", 0, 0)
 fpsHeading:SetPoint("LEFTCENTER", fpsFrame, "RIGHTCENTER", 0, 0)
-
 
 
 
